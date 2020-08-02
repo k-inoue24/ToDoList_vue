@@ -4,20 +4,7 @@ var vm = new Vue({
     el: '#app',
     data: {
         newItem: '',
-        todos: [
-            // {
-            //     title: 'task1',
-            //     isDone: false
-            // },
-            // {
-            //     title: 'task2',
-            //     isDone: false
-            // },
-            // {
-            //     title: 'task3',
-            //     isDone: true
-            // }
-        ]
+        todos: []
     },
     watch: {
         todos: {
@@ -40,12 +27,12 @@ var vm = new Vue({
             this.newItem = '';
         },
         deleteItem: function(index) {
-            if (confirm('Are you sure?')) {
+            if (confirm('削除してよろしいでしょうか？')) {
                 this.todos.splice(index, 1);
             }
         },
         purge: function(index) {
-            if (!confirm('Delete finished?')) {
+            if (!confirm('完了項目を削除してよろしいでしょうか？')) {
                 return;
             }
             this.todos = this.todos.filter(function(todo) {

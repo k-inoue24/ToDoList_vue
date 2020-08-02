@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue Practice</title>
+    <title>TO DOリスト</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div id="app" class="container">
         <h1>
-            <button @click="purge">Purge</button> My Todos
+            <button @click="purge">完了項目を削除</button>TO Doリスト
             <span class="info">{{remaining}}/{{todos.length}}</span>
         </h1>
         <ul>
@@ -21,13 +21,12 @@
                 <span @click="deleteItem(index)" class="command">[×]</span>
             </li>
             <li v-show="!todos.length">
-                Nothing, to do.
+                タスクを全て完了済みです。
             </li>
         </ul>
-        <!-- <form v-on:submit="addItem"> -->
         <form @submit.prevent="addItem">
             <input type="text" v-model="newItem">
-            <input type="submit" value="Add">
+            <input type="submit" value="追加">
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
